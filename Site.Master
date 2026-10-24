@@ -1,0 +1,71 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="study_tracker.SiteMaster" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Study Planner &amp; Productivity Tracker</title>
+
+    <!-- My own stylesheet (plain CSS) -->
+    <link href="<%= ResolveUrl("~/css/style.css") %>" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <!-- ===================== Navigation Bar ===================== -->
+        <nav class="site-nav">
+            <div class="nav-inner">
+                <a class="brand" runat="server" href="~/Default.aspx">📓 StudyTracker</a>
+
+                <button type="button" class="nav-toggle" id="navToggle">☰</button>
+
+                <ul class="nav-links" id="navMenu">
+
+                    <li class="nav-item" runat="server" id="liDashboard">
+                        <a runat="server" href="~/Dashboard.aspx">📊 Dashboard</a>
+                    </li>
+                    <li class="nav-item" runat="server" id="liTasks">
+                        <a runat="server" href="~/Tasks.aspx">📋 My Tasks</a>
+                    </li>
+                    <li class="nav-item" runat="server" id="liProfile">
+                        <a runat="server" href="~/Profile.aspx">👤 Profile</a>
+                    </li>
+                    <li class="nav-item" runat="server" id="liAdmin">
+                        <a runat="server" href="~/Admin/AdminDashboard.aspx">🔒 Admin</a>
+                    </li>
+
+                    <li class="nav-item" runat="server" id="liLogin">
+                        <a runat="server" href="~/Login.aspx">🔑 Login</a>
+                    </li>
+                    <li class="nav-item" runat="server" id="liRegister">
+                        <a runat="server" href="~/Register.aspx">📝 Register</a>
+                    </li>
+
+                    <li class="nav-item" runat="server" id="liUser">
+                        <span class="nav-user"><asp:Literal ID="litUser" runat="server"></asp:Literal></span>
+                    </li>
+                    <li class="nav-item" runat="server" id="liLogout">
+                        <a runat="server" href="~/Logout.aspx">🚪 Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- ===================== Page Content ===================== -->
+        <div class="container page-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <!-- ===================== Footer ===================== -->
+        <footer class="footer-bar">
+            <small>&copy; <asp:Literal ID="litYear" runat="server"></asp:Literal> Study Planner &amp; Productivity Tracker &mdash; Web Programming Lab Project</small>
+        </footer>
+
+        <!-- My own JavaScript -->
+        <script src="<%= ResolveUrl("~/js/script.js") %>"></script>
+    </form>
+</body>
+</html>
